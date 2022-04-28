@@ -13,7 +13,7 @@ class httpRequestHandler(http.server.SimpleHTTPRequestHandler):
             return http.server.SimpleHTTPRequestHandler.do_GET(self)
 
 
-conf = subprocess.run(["grep", "port=", "/var/tmp/mytime/mytime.conf"], stdout=subprocess.PIPE)
+conf = subprocess.run(["grep", "port=8000", "/var/tmp/mytime/mytime.conf"], stdout=subprocess.PIPE)
 if b"=" not in conf.stdout:
     print("Could not read configuration file `/var/tmp/mytime/mytime.conf`")
     sys.exit(1)
