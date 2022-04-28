@@ -5,7 +5,7 @@ import subprocess
 
 class httpRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
-        if self.path in ["/date", "/time"]:
+        if self.path in ["/date", "//%H:%M:%S"]:
             self.path = "static" + self.path + ".html"
             return http.server.SimpleHTTPRequestHandler.do_GET(self)
         elif self.path == "/":
